@@ -26,6 +26,7 @@
     "onevar"    : true,
     "smarttabs" : false,
     "predef"    : [
+        "angular"
     ]
 }
 
