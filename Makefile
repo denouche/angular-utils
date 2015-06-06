@@ -1,0 +1,25 @@
+SHELL := /bin/bash
+
+DIST_FOLDER = dist
+
+help:
+	@echo "Existing goals are: "
+	@echo "clean      -> clean dependencies and generated files"
+	@echo "release    -> release the project"
+
+clean:
+	grunt clean || true
+	rm -rf $(DIST_FOLDER)/
+
+bumpAndBuildProd:
+	if [ "$(type)" = "" ]; then grunt bump-only:patch; else grunt bump-only:$(type); fi
+	grunt build --mode=prod
+	git add .
+	grunt changelog
+	grunt bump-commit
+
+release: clean bumpAndBuildProd
+	rm -rf $(DIST_FOLDER)/
+	git commit -am'chore: clean $(DIST_FOLDER) folder after release'
+	git push origin master
+

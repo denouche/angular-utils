@@ -1,0 +1,9 @@
+{
+  "name": "angular-utils",
+  "version": "0.0.1",
+  "authors": [],
+  "private": true,
+  "ignore": [
+    "**/.*"
+  ]
+}
