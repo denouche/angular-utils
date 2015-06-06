@@ -1,4 +1,4 @@
-angular.module('fetcher')
+angular.module('utils-fetcher')
 .factory('Fetcher', function () {
     'use strict';
 

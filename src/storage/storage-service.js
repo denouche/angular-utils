@@ -1,4 +1,4 @@
-angular.module('storage')
+angular.module('utils-storage')
 .service('StorageService', function () {
     'use strict';
 

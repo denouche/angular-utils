@@ -1,2 +1,2 @@
-angular.module('storage', [
+angular.module('utils-storage', [
 ]);

@@ -1,4 +1,4 @@
-angular.module('alerter')
+angular.module('utils-alerter')
 .service('Alerter', function (toastr) {
     'use strict';
 

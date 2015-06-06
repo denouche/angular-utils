@@ -1,4 +1,4 @@
-angular.module('alerter', [
+angular.module('utils-alerter', [
     'toastr',
     'ngAnimate'
 ]);

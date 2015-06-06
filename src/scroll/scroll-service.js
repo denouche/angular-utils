@@ -1,4 +1,4 @@
-angular.module('scroll')
+angular.module('utils-scroll')
 .service('ScrollService', function ($timeout) {
     'use strict';
 

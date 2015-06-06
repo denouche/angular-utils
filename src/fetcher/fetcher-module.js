@@ -1,1 +1,1 @@
-angular.module('fetcher', []);
+angular.module('utils-fetcher', []);

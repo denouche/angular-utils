@@ -1,1 +1,1 @@
-angular.module('scroll', []);
+angular.module('utils-scroll', []);

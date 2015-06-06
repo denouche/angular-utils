@@ -10,63 +10,6 @@ module.exports = function (grunt) {
     function isProductionMode (mode) {
         return mode === 'prod';
     }
-    
-    var getTemplateVariables = function () {
-        return function () {
-            var vars = null,
-                cssCommon = [],
-                cssApp = [],
-                jsCommon = grunt.config('concat.common.dest'),
-                jsApp = [];
-
-            if(isProductionMode(mode)) {
-                assets.common.css.forEach(function(e) {
-                    cssCommon.push(sanitizeDistFilename(e));
-                });
-
-                vars = {
-                    js: {
-                        common: sanitizeDistFilename(jsCommon),
-                        app: [sanitizeDistFilename(grunt.config('uglify.dist.dest'))]
-                    },
-                    css: {
-                        app: ['assets/css/main.min.css'],
-                        common: cssCommon
-                    }
-                };
-            }
-            else {
-                assets.common.css.forEach(function(e) {
-                    cssCommon.push(sanitizeDevFilename(e));
-                });
-                grunt.file.expand(assets.src.css).forEach(function(e) {
-                    cssApp.push(sanitizeDevFilename(e));
-                });
-
-                grunt.file.expand(
-                    assets.src.js
-                    .concat([
-                        grunt.config.process('<%= html2js.app.dest %>'),
-                    ]))
-                .forEach(function(e) {
-                    jsApp.push(sanitizeDevFilename(e));
-                });
-
-                vars = {
-                    js: {
-                        common: sanitizeDevFilename(jsCommon),
-                        app: jsApp
-                    },
-                    css: {
-                        app: cssApp,
-                        common: cssCommon
-                    }
-                };
-            }
-            return vars;
-        }
-    };
-
 
     grunt.initConfig({
         bump : {
@@ -91,16 +34,17 @@ module.exports = function (grunt) {
         copy: {
             prod: {
                 files: [
-                    {expand: true, cwd: 'src/', src: ['**/*.html'], dest: 'tmp/html/'}
+                    {expand: true, cwd: 'src/', src: ['**/*.html'], dest: 'tmp/angular-utils/'}
                 ]
             }
         },
         html2js: {
             options: {
-                base: 'tmp'
+                base: 'tmp',
+                module: 'angular-utils-templates'
             },
             app: {
-                src: ['tmp/html/**/*.html'],
+                src: ['tmp/angular-utils/**/*.html'],
                 dest: 'tmp/templates.js'
             }
         },
@@ -111,7 +55,7 @@ module.exports = function (grunt) {
             },
             templates: {
                 files: [
-                    {expand: true, cwd: 'tmp/html/', src: '**/*.html', dest: 'tmp/html/'}
+                    {expand: true, cwd: 'tmp/angular-utils/', src: '**/*.html', dest: 'tmp/angular-utils/'}
                 ]
             }
         },
