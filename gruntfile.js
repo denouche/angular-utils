@@ -25,12 +25,6 @@ module.exports = function (grunt) {
                 'tmp/', 'dist/'
             ]
         },
-        concat : {
-            app: {
-                src: assets.src.js.concat(['<%= html2js.app.dest %>']),
-                dest: 'dist/angular-utils.js'
-            }
-        },
         copy: {
             prod: {
                 files: [
@@ -70,11 +64,9 @@ module.exports = function (grunt) {
                 singleQuotes: true
             },
             dist: {
-                files: [
-                    {
-                        src: [ '<%= concat.app.dest %>' ]
-                    }
-                ]
+                files: {
+                    'dist/angular-utils.js': ['<%= html2js.app.dest %>'].concat(assets.src.js)
+                }
             }
         },
         uglify: {
@@ -86,48 +78,22 @@ module.exports = function (grunt) {
         watch : {
             js: {
                 files : ['<%= jshint.all %>'],
-                tasks : ['jshint', 'template']
+                tasks : ['build']
             }
         }
     });
-
-    grunt.registerTask('buildDev', [
-        'clean',
-        'jshint',
-        'html2js'
-    ]);
     
-    grunt.registerTask('buildProd', [
+    grunt.registerTask('build', [
         'clean',
         'jshint',
         'copy',
         'htmlmin',
         'html2js',
-        'concat',
         'ngAnnotate',
         'uglify'
     ]);
 
-    /*
-     * --mode=prod
-     * --mode=dev
-     */
-    grunt.registerTask('build', 'Build', function () {
-        grunt.log.subhead('Build in mode ' + mode);
-        switch (mode) {
-        case 'dev':
-            grunt.task.run('buildDev');
-            break;
-        case 'prod':
-            grunt.task.run('buildProd');
-            break;
-        default:
-            grunt.verbose.or.write('Incorrect build mode [' + mode + ']').error();
-            grunt.fail.warn('Please retry with --mode=dev|prod');
-        }
-    });
-
-    grunt.registerTask('default', 'buildDev');
+    grunt.registerTask('default', 'build');
 
 };
 

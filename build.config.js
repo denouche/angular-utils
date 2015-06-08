@@ -5,7 +5,8 @@ module.exports = {
             'src/**/*-module.js',
             'src/**/*-service.js',
             'src/**/*-directive.js',
-            'src/**/*-controller.js'
+            'src/**/*-controller.js',
+            'src/app.js'
         ],
         css: [
             'src/assets/css/*.css'
