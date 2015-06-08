@@ -1,3 +1,12 @@
+<a name"0.1.2"></a>
+### 0.1.2 (2015-06-09)
+
+
+#### Bug Fixes
+
+* **scroll:** add test if element is defined (a9b29149)
+
+
 <a name"0.1.1"></a>
 ### 0.1.1 (2015-06-08)
 
