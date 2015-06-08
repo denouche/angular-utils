@@ -13,7 +13,9 @@ angular.module('utils-scroll')
     this.downTo = function (elementCssPath) {
         $timeout(function() {
             $timeout(function() {
-                if($(elementCssPath).offset().top + $(elementCssPath).outerHeight() - $(window).scrollTop() > window.innerHeight) {
+                if($(elementCssPath) &&
+                    $(elementCssPath).offset() &&
+                    ($(elementCssPath).offset().top + $(elementCssPath).outerHeight() - $(window).scrollTop()) > window.innerHeight) {
                     var offset = $(elementCssPath).offset().top + $(elementCssPath).outerHeight() - $(window).scrollTop() - window.innerHeight;
                     that.downForPixels(offset);
                 }
