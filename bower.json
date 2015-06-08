@@ -1,9 +1,20 @@
 {
   "name": "angular-utils",
   "version": "0.1.2",
-  "authors": [],
-  "private": true,
+  "authors": [
+  	"Antoine Leveugle"
+  ],
+  "main": [
+  	"dist/angular-utils.min.js",
+  	"dist/angular-utils.js"
+  ],
+  "private": false,
   "ignore": [
     "**/.*"
+    "src/",
+    "Makefile",
+    "build.config.js",
+    "gruntfile.js",
+    "package.json"
   ]
 }
