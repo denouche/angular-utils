@@ -10,7 +10,7 @@
   ],
   "private": false,
   "ignore": [
-    "**/.*"
+    "**/.*",
     "src/",
     "Makefile",
     "build.config.js",
