@@ -71,7 +71,7 @@ module.exports = function (grunt) {
         },
         uglify: {
             dist: {
-                src: [ '<%= concat.app.dest %>'],
+                src: [ 'dist/angular-utils.js'],
                 dest: 'dist/angular-utils.min.js'
             }
         },
