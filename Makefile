@@ -19,9 +19,9 @@ install: npmInstall
 
 bumpAndBuildProd:
 	if [ "$(type)" = "" ]; then grunt bump-only:patch; else grunt bump-only:$(type); fi
-	grunt build --mode=prod
-	git add .
+	grunt build
 	grunt changelog
+	git add .
 	grunt bump-commit
 
 release: clean install bumpAndBuildProd
