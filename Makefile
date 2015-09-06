@@ -18,11 +18,11 @@ npmInstall:
 install: npmInstall
 
 bumpAndBuildProd:
-	if [ "$(type)" = "" ]; then grunt bump-only:patch; else grunt -v bump-only:$(type); fi
-	grunt -v build
+	if [ "$(type)" = "" ]; then grunt bump-only:patch; else grunt bump-only:$(type); fi
+	grunt build
 	grunt changelog
 	git add .
-	grunt -v bump-commit --dry-run
+	grunt bump-commit
 
 release: clean install bumpAndBuildProd
 	rm -rf $(DIST_FOLDER)/
