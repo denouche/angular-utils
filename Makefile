@@ -22,7 +22,7 @@ bumpAndBuildProd:
 	grunt -v build
 	grunt changelog
 	git add .
-	grunt -v bump-commit
+	grunt -v bump-commit --dry-run
 
 release: clean install bumpAndBuildProd
 	rm -rf $(DIST_FOLDER)/
