@@ -1,5 +1,7 @@
 angular.module('utils-checkbox-three-states')
-.directive('checkbox-three-states', [function() {
+.directive('checkbox-three-states', function() {
+    'use strict';
+
     return {
         scope: true,
         require: '?ngModel',
@@ -50,4 +52,4 @@ angular.module('utils-checkbox-three-states')
 			}, true);
 		}
 	};
-}]);
+});
