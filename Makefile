@@ -29,3 +29,4 @@ release: clean install bumpAndBuildProd
 	git commit -am'chore: clean $(DIST_FOLDER) folder after release'
 	git push origin master
 
+
