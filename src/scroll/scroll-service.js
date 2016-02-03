@@ -23,4 +23,15 @@ angular.module('utils-scroll')
         });
     };
 
+    this.upTo = function (elementCssPath) {
+        $timeout(function() {
+            $timeout(function() {
+                if($(window).scrollTop() > $(elementCssPath).offset().top) {
+                    var offset = $(elementCssPath).offset().top - $(window).scrollTop();
+                    that.downForPixels(offset);
+                }
+            });
+        });
+    };
+
 });
