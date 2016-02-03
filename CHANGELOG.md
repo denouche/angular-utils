@@ -1,3 +1,12 @@
+<a name"0.3.0"></a>
+## 0.3.0 (2016-02-03)
+
+
+#### Features
+
+* **scroll:** add upTo function in scroll service (3bdbfde3)
+
+
 <a name"0.2.2"></a>
 ### 0.2.2 (2015-11-30)
 
