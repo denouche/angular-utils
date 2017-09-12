@@ -1,3 +1,12 @@
+<a name"0.3.1"></a>
+### 0.3.1 (2017-09-12)
+
+
+#### Bug Fixes
+
+* **fetcher:** need to return an object on factory instanciation (e626b132)
+
+
 <a name"0.3.0"></a>
 ## 0.3.0 (2016-02-03)
 
